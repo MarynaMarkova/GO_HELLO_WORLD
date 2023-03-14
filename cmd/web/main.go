@@ -18,3 +18,5 @@ func main() {
 	fmt.Println(fmt.Sprintf("Starting application on port %s", portNumber))
 	_ = http.ListenAndServe(portNumber, nil)
 }
+
+//To run this program: go run ./cmd/web/.
