@@ -3,7 +3,7 @@ package handlers
 import (
 	"net/http"
 
-	"github.com/MarynaMarkova/Go-Learning/tree/main/First_Site_2/pkg/render"
+	"github.com/MarynaMarkova/GO_HELLO_WORLD/pkg/render"
 )
 
 // Home is the home page handler

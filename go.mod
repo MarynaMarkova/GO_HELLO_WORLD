@@ -1,3 +1,2 @@
-module github.com/MarynaMarkova/Go-Learning/tree/main/First_Site_2
-
+module github.com/MarynaMarkova/GO_HELLO_WORLD
 go 1.20
