@@ -9,6 +9,7 @@ import (
 	"path/filepath"
 
 	"github.com/MarynaMarkova/GO_HELLO_WORLD/pkg/config"
+	"github.com/MarynaMarkova/GO_HELLO_WORLD/pkg/models"
 )
 
 // Building a more complex template cache
@@ -19,8 +20,13 @@ var app *config.AppConfig
 func NewTemplates(a *config.AppConfig) {
 	app = a
 }
+
+func AddDefaultData(td *models.TemplateData) *models.TemplateData {
+	return td
+}
+
 // RenderTemlplate renders templates using html/template
-func RenderTemplate(w http.ResponseWriter, tmpl string) {
+func RenderTemplate(w http.ResponseWriter, tmpl string, td *models.TemplateData) {
 
 	var tc map[string]*template.Template
 	if app.UseCache {
@@ -37,7 +43,9 @@ func RenderTemplate(w http.ResponseWriter, tmpl string) {
 
 	buf := new(bytes.Buffer)
 
-	_ = t.Execute(buf, nil)
+	td = AddDefaultData(td)
+
+	_ = t.Execute(buf, td)
 	
 	// render the template
 	_, err := buf.WriteTo(w)
